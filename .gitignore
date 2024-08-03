@@ -1,0 +1,22 @@
+# Node modules directory
+node_modules/
+
+# TypeScript build output directory
+dist/
+
+# Environment variables file
+.env
+
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# npm package-lock
+package-lock.json
