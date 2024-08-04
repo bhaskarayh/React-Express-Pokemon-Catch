@@ -1,7 +1,14 @@
 import { isPrime } from "./utils.service";
 
 // Generate a 50% probability for catching Pokemon
-export const getCatchProbability = (): number => Math.random() * 100;
+export const getCatchProbability = (): Promise<number> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const probability = Math.random() * 100;
+      resolve(probability);
+    }, 500); // 3000 milliseconds = 3 seconds
+  });
+};
 
 // Release a Pokemon and return a prime number if successful
 export const releasePokemon = (pokemonId: string): number | null => {

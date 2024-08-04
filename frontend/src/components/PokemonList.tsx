@@ -34,8 +34,11 @@ const PokemonList: React.FC = () => {
       <h1>Pokémon List</h1>
       <div className="row">
         {pokemons.map((pokemon, index) => (
-          <div className="col-md-3 col-lg-2 mb-4" key={pokemon.name}>
-            <div className="card">
+          <div
+            className="col-md-3 col-lg-2 mb-4 d-flex align-items-stretch"
+            key={pokemon.name}
+          >
+            <div className="card d-flex justify-content-evenly">
               <img
                 // src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.name}.png`}
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
@@ -44,8 +47,8 @@ const PokemonList: React.FC = () => {
                 className="card-img-top img-fluid"
                 alt={pokemon.name}
               />
-              <div className="card-body">
-                <h5 className="card-title">{pokemon.name}</h5>
+              <div className="card-body d-flex flex-column justify-content-end">
+                <h5 className="card-title">{pokemon.name.toUpperCase()}</h5>
                 <Link
                   to={`/pokemon/${pokemon.name}`}
                   className="btn btn-primary"
