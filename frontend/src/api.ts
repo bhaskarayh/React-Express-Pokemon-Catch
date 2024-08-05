@@ -37,8 +37,10 @@ export const renamePokemon = async (
   pokemonName: string,
   renameCount: number
 ) => {
+  const splitName = pokemonName.split("-")[0];
+
   const response = await axios.post(`${backendApiUrl}/rename`, {
-    pokemonName,
+    pokemonName: splitName,
     renameCount,
   });
   return response.data;

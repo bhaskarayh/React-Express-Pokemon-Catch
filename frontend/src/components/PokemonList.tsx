@@ -38,7 +38,7 @@ const PokemonList: React.FC = () => {
             className="col-md-3 col-lg-2 mb-4 d-flex align-items-stretch"
             key={pokemon.name}
           >
-            <div className="card d-flex justify-content-evenly">
+            <div className="card d-flex justify-content-evenly w-100">
               <img
                 // src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.name}.png`}
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${

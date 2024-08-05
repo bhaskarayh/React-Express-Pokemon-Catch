@@ -15,6 +15,7 @@ interface PokemonContextType {
     renameCount: number
   ) => void;
   releasePokemon: (pokemon: any) => void;
+  renamePokemon: (id: string, newName: string) => boolean;
 }
 
 const PokemonContext = createContext<PokemonContextType | undefined>(undefined);
@@ -54,9 +55,26 @@ export const PokemonProvider: React.FC<{ children: ReactNode }> = ({
     setCaughtPokemons((prev) => prev.filter((p) => p !== pokemon));
   };
 
+  const renamePokemon = (id: string, newName: string) => {
+    console.log({ newName });
+    setCaughtPokemons((prev) =>
+      prev.map((pokemon) =>
+        pokemon.id === id
+          ? {
+              ...pokemon,
+              myPokemon: newName,
+              renameCount: pokemon.renameCount + 1,
+            }
+          : pokemon
+      )
+    );
+
+    return true;
+  };
+
   return (
     <PokemonContext.Provider
-      value={{ caughtPokemons, addPokemon, releasePokemon }}
+      value={{ caughtPokemons, addPokemon, releasePokemon, renamePokemon }}
     >
       {children}
     </PokemonContext.Provider>
