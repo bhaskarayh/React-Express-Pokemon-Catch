@@ -6,6 +6,7 @@ import MyPokemon from "./pages/MyPokemon";
 import NavigationBar from "./components/NavigationBar";
 import { PokemonProvider } from "./context/PokemonContext";
 import Footer from "./components/Footer";
+import NotFound from "./components/NotFound";
 const App: React.FC = () => {
   return (
     <div className="d-flex flex-column min-vh-100">
@@ -16,6 +17,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/pokemon/:name" element={<Detail />} />
             <Route path="/my-pokemon" element={<MyPokemon />} />
+            <Route path="*" element={<NotFound />} /> {/* Catch-all route */}
           </Routes>
           <Footer />
         </Router>
