@@ -18,8 +18,8 @@ The backend is a REST API built with Express.js and TypeScript. Follow these ste
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/bhaskarayh/React-Express-Pokemon-Catch.git
+cd backend
 ```
 
 ### 2. Install Dependencies

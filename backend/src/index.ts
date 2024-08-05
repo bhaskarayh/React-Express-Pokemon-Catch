@@ -16,6 +16,5 @@ app.use("/api", setHeaders, pokemonRoutes);
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 
-  // swaggerDocs(app, port);
   swaggerAutogen();
 });
