@@ -31,7 +31,7 @@ const PokemonDetail: React.FC = () => {
     const success = Math.random() * 100 < probability;
     setCatchSuccess(success);
     if (success) {
-      const newName = await renamePokemon(name!, 0); // Example renameCount
+      const newName = await renamePokemon(name!, 0);
       console.log("Caught Pokemon:", newName);
 
       addPokemon(newName.newName, name, 0);
@@ -55,13 +55,13 @@ const PokemonDetail: React.FC = () => {
 
   function capitalizeAndSeparate(str: string, separator: string = " "): string {
     return str
-      .split("-") // Split the string into words by spaces
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize each word
-      .join(separator); // Join the words with the specified separator
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(separator);
   }
 
   return (
-    <div className="container mt-4">
+    <div className="container mb-5" style={{ marginTop: "6em" }}>
       {pokemon && (
         <div className="card">
           <div className="card-img-top d-flex justify-content-center">

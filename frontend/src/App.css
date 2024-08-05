@@ -5,6 +5,26 @@
   text-align: center;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1; /* Ensures that the root div (where React mounts) grows to fill available space */
+}
+
+footer {
+  background-color: #343a40; /* Dark background for the footer */
+  color: #ffffff; /* White text color */
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

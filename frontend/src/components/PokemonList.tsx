@@ -13,7 +13,6 @@ const PokemonList: React.FC = () => {
       const offset = (currentPage - 1) * 10;
       const response = await fetchPokemonList(offset);
 
-      //   console.log({ response });
       setPokemons(response.results);
       setTotalPages(Math.ceil(response.count / 20));
     };
@@ -24,13 +23,8 @@ const PokemonList: React.FC = () => {
     setCurrentPage(page);
   };
 
-  //   console.log({ pokemons });
-  //   console.log({ totalPages });
-  //   console.log({ currentPage });
-  //   console.log(1 * ((currentPage - 1) * 10) + 1);
-
   return (
-    <div className="container mt-4">
+    <div className="container mb-5" style={{ marginTop: "6em" }}>
       <h1>Pokémon List</h1>
       <div className="row">
         {pokemons.map((pokemon, index) => (
@@ -40,7 +34,6 @@ const PokemonList: React.FC = () => {
           >
             <div className="card d-flex justify-content-evenly w-100">
               <img
-                // src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.name}.png`}
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
                   index + 1 + (currentPage - 1) * 10
                 }.png`}
@@ -62,8 +55,14 @@ const PokemonList: React.FC = () => {
       </div>
 
       <Pagination className="d-flex justify-content-center">
-        <Pagination.First onClick={() => handlePageChange(1)} />
-        <Pagination.Prev onClick={() => handlePageChange(currentPage - 1)} />
+        <Pagination.First
+          onClick={() => handlePageChange(1)}
+          disabled={currentPage - 1 === 0}
+        />
+        <Pagination.Prev
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage - 1 === 0}
+        />
 
         {totalPages > 0 && (
           <>
@@ -87,14 +86,20 @@ const PokemonList: React.FC = () => {
               } else if (page === currentPage - 3 || page === currentPage + 3) {
                 return <Pagination.Ellipsis key={page} />;
               } else {
-                return null; // Skip rendering if the page number is not needed
+                return null;
               }
             })}
           </>
         )}
 
-        <Pagination.Next onClick={() => handlePageChange(currentPage + 1)} />
-        <Pagination.Last onClick={() => handlePageChange(totalPages)} />
+        <Pagination.Next
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage + 1 === totalPages + 1}
+        />
+        <Pagination.Last
+          onClick={() => handlePageChange(totalPages)}
+          disabled={currentPage + 1 === totalPages + 1}
+        />
       </Pagination>
     </div>
   );

@@ -9,16 +9,7 @@ const NavigationBar: React.FC = () => {
   const location = useLocation();
 
   return (
-    // <Navbar bg="light" expand="lg">
-    //   <Navbar.Brand href="/">Pokémon App</Navbar.Brand>
-    //   <Nav className="mr-auto">
-    //     <Button variant="outline-primary" onClick={() => navigate(-1)}>
-    //       Back
-    //     </Button>
-    //   </Nav>
-    // </Navbar>
-
-    <Navbar className="navbar navbar-dark bg-primary">
+    <Navbar className="navbar navbar-dark bg-primary fixed-top">
       <Container>
         <Navbar.Brand href="/">
           <img
@@ -31,7 +22,7 @@ const NavigationBar: React.FC = () => {
           Pokémon App
         </Navbar.Brand>
 
-        <Nav className="mr-auto d-flex gap-3 align-items-center">
+        <Nav className="ms-auto d-flex gap-3 align-items-center">
           <div className="nav-item">
             <Link to="/my-pokemon" className="nav-link text-white">
               My Pokemon
@@ -40,7 +31,7 @@ const NavigationBar: React.FC = () => {
           {location.pathname === "/" ? (
             ""
           ) : (
-            <Button variant="btn btn-light" onClick={() => navigate(-1)}>
+            <Button variant="light" onClick={() => navigate(-1)}>
               Back
             </Button>
           )}

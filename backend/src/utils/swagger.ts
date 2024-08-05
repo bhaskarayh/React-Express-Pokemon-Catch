@@ -4,7 +4,7 @@ import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 
 const doc = {
-  openapi: "2.0", // Specify OpenAPI 3.0
+  openapi: "2.0",
   info: {
     title: "Pokemon API",
     description: "Pokemon API by Bhaskara Yudhistira Hoetomo",
@@ -12,7 +12,7 @@ const doc = {
   },
   servers: [
     {
-      url: "http://localhost:3000", // Specify the URL of your API
+      url: "http://localhost:3000",
       description: "Development server",
     },
   ],
@@ -21,9 +21,8 @@ const doc = {
 const outputFile = "./data/swagger-output.json";
 const endpointsFiles = ["./src/index.ts"];
 
-// const swaggerSpec = swaggerJsdoc(options);
 swaggerAutogen()(outputFile, endpointsFiles, doc).then(async () => {
-  await import("../index"); // Your project's root file
+  await import("../index");
 });
 
 export default swaggerAutogen;

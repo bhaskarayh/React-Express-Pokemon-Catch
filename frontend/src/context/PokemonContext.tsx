@@ -31,7 +31,6 @@ export const PokemonProvider: React.FC<{ children: ReactNode }> = ({
   });
 
   useEffect(() => {
-    // Save the state to localStorage whenever it changes
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(caughtPokemons));
   }, [caughtPokemons]);
 
@@ -51,8 +50,8 @@ export const PokemonProvider: React.FC<{ children: ReactNode }> = ({
     ]);
   };
 
-  const releasePokemon = (pokemon: any) => {
-    setCaughtPokemons((prev) => prev.filter((p) => p !== pokemon));
+  const releasePokemon = (pokemonId: any) => {
+    setCaughtPokemons((prev) => prev.filter((p) => p.id !== pokemonId));
   };
 
   const renamePokemon = (id: string, newName: string) => {

@@ -1,4 +1,3 @@
-// Check if a number is prime
 export const isPrime = (num: number): boolean => {
   if (num <= 1) return false;
   if (num <= 3) return true;
